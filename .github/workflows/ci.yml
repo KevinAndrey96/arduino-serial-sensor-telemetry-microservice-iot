@@ -1,0 +1,41 @@
+name: CI - Arduino Serial Sensor Telemetry Gateway
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  test:
+    name: Python Test & Verification
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Syntax Compilation Check
+        run: |
+          python -m compileall src/ tests/ scripts/ main.py
+
+      - name: Run Standalone Verification Suite
+        run: |
+          python scripts/run_verification.py
+
+      - name: Run Pytest Suite
+        run: |
+          pytest -v
