@@ -77,7 +77,7 @@ class TelemetryHTTPHandler(BaseHTTPRequestHandler):
             snap = global_telemetry_state.get_snapshot()
             response = {
                 "status": "UP",
-                "service": "arduino-serial-sensor-telemetry-microservice-iot",
+                "service": "python-arduino-serial-sensor-telemetry-microservice",
                 "uptime_sec": snap["uptime_sec"]
             }
             self.wfile.write(json.dumps(response).encode("utf-8"))

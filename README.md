@@ -1,6 +1,6 @@
 # Arduino Serial Sensor Telemetry Microservice IoT
 
-[![CI](https://github.com/KevinAndrey96/arduino-serial-sensor-telemetry-microservice-iot/actions/workflows/ci.yml/badge.svg)](https://github.com/KevinAndrey96/arduino-serial-sensor-telemetry-microservice-iot/actions/workflows/ci.yml)
+[![CI](https://github.com/KevinAndrey96/python-arduino-serial-sensor-telemetry-microservice/actions/workflows/ci.yml/badge.svg)](https://github.com/KevinAndrey96/python-arduino-serial-sensor-telemetry-microservice/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Serial](https://img.shields.io/badge/Hardware-USB%20Serial%20UART-f59e0b?style=flat-square&logo=arduino&logoColor=white)](https://www.arduino.cc/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
@@ -118,7 +118,7 @@ The default parser unpacks standard 7-channel CSV sensor telemetry bursts:
 
 ## ⚡ Arduino Hardware Reference Firmware
 
-The repository includes a ready-to-flash C++ sketch located at [`firmware/arduino_telemetry_transmitter.ino`](file:///Users/kevinandrey/Documents/Kevin/github/arduino-serial-sensor-telemetry-microservice-iot/firmware/arduino_telemetry_transmitter.ino).
+The repository includes a ready-to-flash C++ sketch located at [`firmware/arduino_telemetry_transmitter.ino`](firmware/arduino_telemetry_transmitter.ino).
 
 ```cpp
 // Serial Telemetry Transmitter Sketch (Arduino Uno / Nano / Mega)
@@ -154,8 +154,8 @@ void loop() {
 Clone the repository and run in hardware simulator mode without needing an Arduino connected:
 
 ```bash
-git clone git@github.com:KevinAndrey96/arduino-serial-sensor-telemetry-microservice-iot.git
-cd arduino-serial-sensor-telemetry-microservice-iot
+git clone https://github.com/KevinAndrey96/python-arduino-serial-sensor-telemetry-microservice.git
+cd python-arduino-serial-sensor-telemetry-microservice
 
 python3 main.py --simulate --web
 ```
@@ -191,7 +191,7 @@ curl -X GET http://localhost:8080/api/v1/health
 ```json
 {
   "status": "UP",
-  "service": "arduino-serial-sensor-telemetry-microservice-iot",
+  "service": "python-arduino-serial-sensor-telemetry-microservice",
   "uptime_sec": 42.5
 }
 ```
